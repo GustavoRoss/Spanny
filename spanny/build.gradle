@@ -1,13 +1,14 @@
 apply plugin: 'com.android.library'
+apply plugin: 'maven-publish'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
     resourcePrefix "spanny__"
 
     defaultConfig {
         minSdkVersion 8
-        targetSdkVersion 22
+        targetSdkVersion 30
         versionCode 1
         versionName "1.0.3"
     }
@@ -20,7 +21,18 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }
 
-apply from: 'bintray.gradle'
+afterEvaluate {
+    publishing {
+        publications {
+            release(MavenPublication) {
+                from components.release
+                groupId = 'com.binaryfork.spanny'
+                artifactId = 'final'
+                version = '1.0.3'
+            }
+        }
+    }
+}
