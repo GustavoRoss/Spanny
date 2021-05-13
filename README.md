@@ -8,6 +8,16 @@ You can just [copy the class][1] to your project or grab it via Gradle:
 ```
 implementation 'com.github.GustavoRoss:Spanny:1.0.3'
 ```
+Also add the jitpack on your build.gradle of project level:
+
+```
+ allprojects {
+     repositories {
+         ...
+         maven { url "https://jitpack.io" }
+     }
+ }
+```
 
 ### Usage
 Use `.append(text, span)` to add and mark the text with any span:
