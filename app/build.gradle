@@ -21,5 +21,5 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':spanny')
+    implementation 'com.github.GustavoRoss:Spanny:1.0.3'
 }
